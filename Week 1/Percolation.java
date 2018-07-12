@@ -25,12 +25,9 @@ public class Percolation {
         //the array position of the requested point is set to numerical value of
         //its position in the array. So a point at row 9 column 13, position 
         //grid[8][12], is set to 173.
-        System.out.println(isOpen(row,col));
         if (!isOpen(row, col)) {
-            System.out.println("what's going on here");
             grid[row - 1][col - 1] = addressToNumber(row,col);
             open_helper(row, col);
-            System.out.println(grid[row - 1][col - 1]);
             numberOfOpenSites++;
         }
     }
@@ -72,7 +69,7 @@ public class Percolation {
     }
     
     public static int addressToNumber(int row, int col) {
-        System.out.println(((row - 1) * 20) + col);
+        //System.out.println(((row - 1) * 20) + col);
         return ((row - 1) * 20) + col;
     }
     
@@ -84,6 +81,7 @@ public class Percolation {
         Percolation test = new Percolation(20);
         test.open(2,15);
         test.open(2,16);
+        System.out.println(test.uf.connected(addressToNumber(2,15),addressToNumber(2,16)));
         System.out.println(test.numberOfOpenSites());
     }
     
