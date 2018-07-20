@@ -71,8 +71,11 @@ public class RandomizedQueue<Item> implements Iterable<Item>
 
         public RandomArrayIterator() {
             parent_size = size;
+            System.out.println(parent_size);
             random_array = array;
-            //random_array = StdRandom.shuffle(array);
+            System.out.println(random_array);
+            StdRandom.shuffle(random_array);
+            System.out.println(random_array);
         }
         
         public boolean hasNext() {return parent_size > 0;}
