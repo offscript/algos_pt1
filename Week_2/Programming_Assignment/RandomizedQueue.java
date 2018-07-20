@@ -8,7 +8,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     private Item[] array;
     
     public RandomizedQueue() {
-        size = 0;
+        size = 10;
         array = (Item[]) new Object[2];
     }
     
