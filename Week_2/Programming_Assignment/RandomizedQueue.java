@@ -8,8 +8,8 @@ public class RandomizedQueue<Item> implements Iterable<Item>
     private Item[] array;
     
     public RandomizedQueue() {
-        size = 10;
-        array = (Item[]) new Object[2];
+        size = 0;
+        array = (Item[]) new Object[10];
     }
     
     public boolean isEmpty()
@@ -71,11 +71,11 @@ public class RandomizedQueue<Item> implements Iterable<Item>
 
         public RandomArrayIterator() {
             parent_size = size;
-            System.out.println(parent_size);
+            //System.out.println(parent_size);
             random_array = array;
-            System.out.println(random_array);
-            StdRandom.shuffle(random_array);
-            System.out.println(random_array);
+            //System.out.println(random_array);
+            StdRandom.shuffle(random_array, 0, size);
+            //System.out.println(array[0]);
         }
         
         public boolean hasNext() {return parent_size > 0;}

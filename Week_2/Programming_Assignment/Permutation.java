@@ -4,14 +4,17 @@ import edu.princeton.cs.algs4.StdOut;
 public class Permutation {
     
     public static void main(String[] args) {
-        int k = args.length;
-        RandomizedQueue permutation_queue = new RandomizedQueue();
-        while (k > 0) {
-            permutation_queue.enqueue(StdIn.readChar());
-            k--;
+        String numberOfInputs= args[0];
+        int counter = Integer.parseInt(numberOfInputs);
+        System.out.println(counter);
+        RandomizedQueue<String> permutation_queue = new RandomizedQueue();
+        while (counter > 0) {
+            permutation_queue.enqueue(StdIn.readString());
+            counter--;
         }
-        for (Item item : permutation_queue) {
+        for (String item : permutation_queue) {
             System.out.println(item);
         }
+        
     }
 }
