@@ -38,12 +38,12 @@ import java.util.Arrays;
  * @author Robert Sedgewick
  * @author Kevin Wayne
  */
-public class BinarySearch {
+public class p129 {
 
     /**
      * This class should not be instantiated.
      */
-    private BinarySearch() {
+    private p129() {
     }
 
     /**
@@ -53,17 +53,25 @@ public class BinarySearch {
      * @param key the search key
      * @return index of key in array {@code a} if present; {@code -1} otherwise
      */
-    public static int indexOf(int[] a, int key) {
+    public static int[] indexOf(int[] a, int key, int counter) {
+        int[] pair = new int[2];
         int lo = 0;
         int hi = a.length - 1;
         while (lo <= hi) {
+            counter++;
             // Key is in a[lo..hi] or not present.
             int mid = lo + (hi - lo) / 2;
             if (key < a[mid]) hi = mid - 1;
             else if (key > a[mid]) lo = mid + 1;
-            else return mid;
+            else {
+                pair[0] = mid;
+                pair[1] = counter;
+                return pair;
+            }
         }
-        return -1;
+        pair[0] = -1;
+        pair[1] = counter;
+        return pair;
     }
 
     /**
@@ -77,8 +85,8 @@ public class BinarySearch {
      * @deprecated Replaced by {@link #indexOf(int[], int)}.
      */
     @Deprecated
-    public static int rank(int key, int[] a) {
-        return indexOf(a, key);
+    public static int[] rank(int key, int[] a, int counter) {
+        return indexOf(a, key, counter);
     }
 
     /**
@@ -97,11 +105,14 @@ public class BinarySearch {
         // sort the array
         Arrays.sort(whitelist);
 
+        int counter = 0;
         // read integer key from standard input; print if not in whitelist
         while (!StdIn.isEmpty()) {
             int key = StdIn.readInt();
-            if (BinarySearch.indexOf(whitelist, key) == -1)
-                StdOut.println(key);
+            int[] pair = p129.indexOf(whitelist, key, counter);
+            System.out.println("We made " + pair[1] + " checks.");
+            if (pair[0] == -1)
+                StdOut.println(key + " isn't here");
         }
     }
 }
