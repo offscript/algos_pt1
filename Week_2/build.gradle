@@ -7,16 +7,23 @@
 
 plugins {
 	id 'java'
-	id 'eclipse' // optional (to generate Eclipse project files)
 	id 'idea' // optional (to generate IntelliJ IDEA project files)
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
+	maven {
+            url  "https://dl.bintray.com/algs4/maven"
+        }
 }
 
 dependencies {
 	testImplementation('org.junit.jupiter:junit-jupiter:5.5.2')
+	testImplementation('edu.princeton.cs:algs4:1.0.4')
+	implementation('edu.princeton.cs:algs4:1.0.4')
+	compileOnly 'edu.princeton.cs:algs4:1.0.4'
+	compileClasspath('edu.princeton.cs:algs4:1.0.4')
+
 }
 
 test {

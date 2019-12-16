@@ -1,3 +1,5 @@
+import edu.princeton.cs.algs4.*;
+
 public class GenericResizingFixedCapacityStack<Item> {
 
     private int N; //n is the number of items iin the stack, so given the property of arrays it points to an empty space

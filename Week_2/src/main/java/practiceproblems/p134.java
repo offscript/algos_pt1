@@ -1,5 +1,7 @@
 package practiceproblems;
 
+import edu.princeton.cs.algs4.*;
+
 import java.util.HashMap;
 
 public class p134 {

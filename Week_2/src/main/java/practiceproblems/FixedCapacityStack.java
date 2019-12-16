@@ -1,3 +1,5 @@
+import edu.princeton.cs.algs4.*;
+
 public class FixedCapacityStack<Item> {
     private Item[] a;
     private int N;
